@@ -645,177 +645,30 @@ p {
   align-items: center;
   position: relative;
   background-image: 
-    linear-gradient(to right, rgba(16, 14, 12, 0.90) 0%, rgba(16, 14, 12, 0.78) 50%, rgba(16, 14, 12, 0.45) 100%),
+    linear-gradient(to right, rgba(16, 14, 12, 0.94) 0%, rgba(16, 14, 12, 0.84) 42%, rgba(16, 14, 12, 0.42) 75%, rgba(16, 14, 12, 0.18) 100%),
     linear-gradient(to top, rgba(16, 14, 12, 0.95) 0%, transparent 25%),
-    url('assets/images/hero-aesthetic.jpg');
-  background-position: center center;
+    url('assets/images/specialist.jpg');
+  background-position: center right;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #FAF7F2;
 }
 
+@media (max-width: 991px) {
+  .hero-section {
+    background-image: 
+      linear-gradient(180deg, rgba(16, 14, 12, 0.88) 0%, rgba(16, 14, 12, 0.74) 45%, rgba(16, 14, 12, 0.94) 100%),
+      url('assets/images/specialist.jpg');
+    background-position: 68% center;
+  }
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  gap: 3rem;
-  width: 100%;
-}
-
-@media (min-width: 992px) {
-  .hero-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 3.5rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .hero-grid {
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 4.5rem;
-  }
-}
-
-/* Especialista Portrait em Destaque na Hero */
-.hero-media {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-portrait-frame {
-  position: relative;
-  width: 100%;
-  max-width: 440px;
-  background: linear-gradient(145deg, rgba(226, 196, 147, 0.45) 0%, rgba(35, 30, 26, 0.85) 50%, rgba(194, 159, 104, 0.25) 100%);
-  padding: 8px;
-  border-radius: 28px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65), 0 0 45px rgba(194, 159, 104, 0.2);
-  transition: transform 0.4s var(--transition-bezier), box-shadow 0.4s var(--transition-bezier);
-}
-
-.hero-portrait-frame:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.75), 0 0 60px rgba(194, 159, 104, 0.3);
-}
-
-.hero-portrait-inner {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  background: #1A1715;
-  aspect-ratio: 4 / 5;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.hero-portrait-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  display: block;
-  transition: transform 0.6s var(--transition-bezier);
-}
-
-.hero-portrait-frame:hover .hero-portrait-img {
-  transform: scale(1.03);
-}
-
-.hero-portrait-inner::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 40%;
-  background: linear-gradient(to top, rgba(16, 14, 12, 0.85) 0%, rgba(16, 14, 12, 0) 100%);
-  pointer-events: none;
-}
-
-.hero-portrait-badge {
-  position: absolute;
-  bottom: 1.25rem;
-  left: 1rem;
-  right: 1rem;
-  background: rgba(26, 23, 20, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(226, 196, 147, 0.35);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-  border-radius: 18px;
-  padding: 0.85rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  z-index: 3;
-}
-
-.hero-badge-avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #E2C493 0%, #9C7844 100%);
-  color: #1A1715;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  font-weight: 800;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(194, 159, 104, 0.4);
-}
-
-.hero-badge-text {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.hero-badge-name {
-  font-family: var(--font-serif);
-  font-size: 0.975rem;
-  color: #FAF7F2;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.hero-badge-role {
-  font-size: 0.75rem;
-  color: #D6CEC3;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.hero-portrait-tag {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(18, 16, 14, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-pill);
-  padding: 0.4rem 0.9rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #FAF7F2;
-  z-index: 3;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-}
-
-.hero-tag-icon {
-  color: var(--color-gold);
-  font-size: 0.85rem;
+  max-width: 780px;
 }
 
 .hero-copy h1 {
