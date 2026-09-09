@@ -526,7 +526,7 @@ p {
   box-shadow: 0 0 16px rgba(194, 159, 104, 0.3);
 }
 
-/* Hero Top-Right Social Media Container (Base) */
+/* Hero Top-Right Social Media Container */
 .hero-top-social {
   position: absolute;
   top: 6.5rem;
@@ -535,16 +535,6 @@ p {
   align-items: center;
   gap: 0.75rem;
   z-index: 35;
-}
-
-.hero-social-label {
-  display: none;
-}
-
-.hero-social-icons {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
 }
 
 /* Hamburger Morph Button */
@@ -681,82 +671,54 @@ p {
 
 @media (max-width: 991px) {
   .hero-section {
-    min-height: 100dvh;
-    padding-top: 7.75rem;
-    padding-bottom: 5rem;
+    min-height: 85dvh;
+    padding-top: 8rem;
+    padding-bottom: 4.5rem;
     display: flex;
     align-items: center;
   }
 
+  /* No mobile, a foto da especialista NÃO fica no fundo da hero (removida conforme sua escolha),
+     deixando o fundo 100% limpo com iluminação sutil de luxo, e todo o destaque para a 2ª seção */
   .hero-section::before {
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background-image: 
-      linear-gradient(180deg, 
-        rgba(16, 14, 12, 0.94) 0%, 
-        rgba(16, 14, 12, 0.86) 24%, 
-        rgba(16, 14, 12, 0.90) 65%, 
-        rgba(16, 14, 12, 0.98) 100%
-      ),
-      radial-gradient(ellipse at 85% 18%, rgba(226, 196, 147, 0.16) 0%, transparent 55%),
-      url('assets/images/specialist.jpg');
-    background-position: 85% 12%;
+      radial-gradient(ellipse at 50% 20%, rgba(226, 196, 147, 0.12) 0%, transparent 65%),
+      linear-gradient(180deg, #141210 0%, #181512 50%, #141210 100%);
+    background-position: center;
     background-size: cover;
   }
 
-  /* No mobile/tablet, as redes sociais descem para baixo do CTA em formato de barra de autoridade */
-  .hero-section .hero-top-social {
-    position: static !important;
-    margin-top: 1.85rem !important;
-    display: flex !important;
-    align-items: center !important;
-    flex-wrap: wrap !important;
-    gap: 0.85rem !important;
-    z-index: 10 !important;
-  }
-
-  .hero-social-label {
-    display: inline-block !important;
-    font-size: 0.825rem !important;
-    color: #D6CEC3 !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.02em !important;
-  }
-
-  .hero-social-icons {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.65rem !important;
-  }
-
-  .hero-social-icons .social-icon-btn {
-    width: 2.5rem !important;
-    height: 2.5rem !important;
+  /* No mobile, ocultamos os icones de redes sociais soltos no topo para visual limpo e sofisticado */
+  .hero-top-social {
+    display: none !important;
   }
 }
 
 @media (max-width: 768px) {
   .hero-section {
-    padding-top: 7rem;
-    padding-bottom: 4.5rem;
+    min-height: 80dvh;
+    padding-top: 7.5rem;
+    padding-bottom: 4rem;
   }
 
   .hero-copy h1 {
-    font-size: clamp(1.95rem, 7.2vw, 2.45rem);
-    line-height: 1.18;
+    font-size: clamp(2rem, 7.5vw, 2.75rem);
+    line-height: 1.15;
     margin-bottom: 1.25rem;
-    color: #FFFFFF;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.95), 0 0 3px rgba(0, 0, 0, 0.95);
+    color: #FAF7F2;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
   }
 
   .hero-description {
-    font-size: 0.975rem;
-    line-height: 1.7;
-    margin-bottom: 1.85rem;
-    color: #EAE4DC;
-    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.95);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    color: #D6CEC3;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   }
 
   .hero-cta-group {
@@ -766,8 +728,8 @@ p {
   .hero-cta-group .btn-primary {
     width: 100%;
     justify-content: center;
-    padding: 0.95rem 1.5rem;
-    font-size: 0.975rem;
+    padding: 1rem 1.75rem;
+    font-size: 1rem;
   }
 }
 
