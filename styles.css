@@ -529,12 +529,12 @@ p {
 /* Hero Top-Right Social Media Container */
 .hero-top-social {
   position: absolute;
-  top: 1.35rem;
-  right: 2rem;
+  top: 6.5rem;
+  right: 2.5rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  z-index: 1001;
+  z-index: 30;
 }
 
 @media (max-width: 991px) {
@@ -653,13 +653,13 @@ p {
 .hero-section::before {
   content: '';
   position: absolute;
-  top: -40px;
-  right: -180px;
+  top: -15px;
+  right: -70px;
   bottom: 0;
   left: 0;
   background-image: 
-    linear-gradient(to right, rgba(16, 14, 12, 0.96) 0%, rgba(16, 14, 12, 0.88) 40%, rgba(16, 14, 12, 0.35) 70%, rgba(16, 14, 12, 0.05) 100%),
-    linear-gradient(to bottom, rgba(16, 14, 12, 0.75) 0%, transparent 18%),
+    linear-gradient(to right, rgba(16, 14, 12, 0.96) 0%, rgba(16, 14, 12, 0.88) 40%, rgba(16, 14, 12, 0.35) 70%, rgba(16, 14, 12, 0.08) 100%),
+    linear-gradient(to bottom, rgba(16, 14, 12, 0.85) 0%, transparent 20%),
     linear-gradient(to top, rgba(16, 14, 12, 0.95) 0%, transparent 20%),
     url('assets/images/specialist.jpg');
   background-position: right top;
@@ -676,8 +676,8 @@ p {
 
 @media (min-width: 1400px) {
   .hero-section::before {
-    top: -55px;
-    right: -240px;
+    top: -25px;
+    right: -100px;
   }
 }
 
