@@ -526,7 +526,7 @@ p {
   box-shadow: 0 0 16px rgba(194, 159, 104, 0.3);
 }
 
-/* Hero Top-Right Social Media Container */
+/* Hero Top-Right Social Media Container (Base) */
 .hero-top-social {
   position: absolute;
   top: 6.5rem;
@@ -534,19 +534,17 @@ p {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  z-index: 30;
+  z-index: 35;
 }
 
-@media (max-width: 991px) {
-  .hero-top-social {
-    top: 5.75rem;
-    right: 1.25rem;
-    gap: 0.5rem;
-  }
-  .hero-top-social .social-icon-btn {
-    width: 2.35rem;
-    height: 2.35rem;
-  }
+.hero-social-label {
+  display: none;
+}
+
+.hero-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 /* Hamburger Morph Button */
@@ -674,13 +672,6 @@ p {
   z-index: 2;
 }
 
-.hero-section .hero-top-social {
-  position: absolute !important;
-  top: 6.5rem !important;
-  right: 2.5rem !important;
-  z-index: 35 !important;
-}
-
 @media (min-width: 1400px) {
   .hero-section::before {
     top: -55px;
@@ -690,15 +681,93 @@ p {
 
 @media (max-width: 991px) {
   .hero-section {
-    padding-top: 8.5rem;
+    min-height: 100dvh;
+    padding-top: 7.75rem;
+    padding-bottom: 5rem;
+    display: flex;
+    align-items: center;
   }
+
   .hero-section::before {
     top: 0;
     right: 0;
+    bottom: 0;
+    left: 0;
     background-image: 
-      linear-gradient(180deg, rgba(16, 14, 12, 0.90) 0%, rgba(16, 14, 12, 0.65) 45%, rgba(16, 14, 12, 0.95) 100%),
+      linear-gradient(180deg, 
+        rgba(16, 14, 12, 0.94) 0%, 
+        rgba(16, 14, 12, 0.86) 24%, 
+        rgba(16, 14, 12, 0.90) 65%, 
+        rgba(16, 14, 12, 0.98) 100%
+      ),
+      radial-gradient(ellipse at 85% 18%, rgba(226, 196, 147, 0.16) 0%, transparent 55%),
       url('assets/images/specialist.jpg');
-    background-position: 68% center;
+    background-position: 85% 12%;
+    background-size: cover;
+  }
+
+  /* No mobile/tablet, as redes sociais descem para baixo do CTA em formato de barra de autoridade */
+  .hero-section .hero-top-social {
+    position: static !important;
+    margin-top: 1.85rem !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.85rem !important;
+    z-index: 10 !important;
+  }
+
+  .hero-social-label {
+    display: inline-block !important;
+    font-size: 0.825rem !important;
+    color: #D6CEC3 !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .hero-social-icons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.65rem !important;
+  }
+
+  .hero-social-icons .social-icon-btn {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 7rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.95rem, 7.2vw, 2.45rem);
+    line-height: 1.18;
+    margin-bottom: 1.25rem;
+    color: #FFFFFF;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.95), 0 0 3px rgba(0, 0, 0, 0.95);
+  }
+
+  .hero-description {
+    font-size: 0.975rem;
+    line-height: 1.7;
+    margin-bottom: 1.85rem;
+    color: #EAE4DC;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.95);
+  }
+
+  .hero-cta-group {
+    width: 100%;
+  }
+
+  .hero-cta-group .btn-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.95rem 1.5rem;
+    font-size: 0.975rem;
   }
 }
 
@@ -1354,6 +1423,24 @@ p {
 @media (min-width: 992px) {
   .specialist-grid {
     grid-template-columns: 0.9fr 1.1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .specialist-grid {
+    gap: 2.25rem;
+  }
+  .specialist-image-outer {
+    max-width: 380px;
+    margin: 0 auto;
+    border-radius: 2rem;
+  }
+  .specialist-image-inner {
+    border-radius: calc(2rem - 0.65rem);
+  }
+  .specialist-content .btn-primary {
+    width: 100%;
+    justify-content: center;
   }
 }
 
