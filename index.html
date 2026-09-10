@@ -633,9 +633,9 @@
           </div>
         </div>
 
-        <div class="reviews-grid">
+        <div class="reviews-grid" id="reviewsCarousel">
           
-          <div class="bezel-card-outer reveal-on-scroll">
+          <div class="bezel-card-outer reveal-on-scroll review-slide">
             <div class="bezel-card-inner">
               <div class="google-stars" style="margin-bottom: 1rem;">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -653,7 +653,7 @@
             </div>
           </div>
 
-          <div class="bezel-card-outer reveal-on-scroll">
+          <div class="bezel-card-outer reveal-on-scroll review-slide">
             <div class="bezel-card-inner">
               <div class="google-stars" style="margin-bottom: 1rem;">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -671,7 +671,7 @@
             </div>
           </div>
 
-          <div class="bezel-card-outer reveal-on-scroll">
+          <div class="bezel-card-outer reveal-on-scroll review-slide">
             <div class="bezel-card-inner">
               <div class="google-stars" style="margin-bottom: 1rem;">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -689,6 +689,25 @@
             </div>
           </div>
 
+        </div>
+
+        <!-- Controles do Carrossel Mobile -->
+        <div class="reviews-carousel-nav" id="reviewsCarouselNav">
+          <button class="reviews-nav-btn reviews-prev" id="reviewsPrev" aria-label="Avaliação anterior">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <div class="reviews-carousel-dots" id="reviewsCarouselDots">
+            <button class="review-carousel-dot is-active" data-index="0" aria-label="Ver avaliação 1"></button>
+            <button class="review-carousel-dot" data-index="1" aria-label="Ver avaliação 2"></button>
+            <button class="review-carousel-dot" data-index="2" aria-label="Ver avaliação 3"></button>
+          </div>
+          <button class="reviews-nav-btn reviews-next" id="reviewsNext" aria-label="Próxima avaliação">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
 
         <p class="real-reviews-note">

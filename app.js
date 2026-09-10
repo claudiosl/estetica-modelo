@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 9. Animações de Entrada (IntersectionObserver)
   setupScrollReveal();
+
+  // 10. Carrossel de Avaliações no Mobile
+  setupReviewsCarousel();
 });
 
 /**
@@ -478,3 +481,68 @@ function setupScrollReveal() {
 
   revealElements.forEach(el => observer.observe(el));
 }
+
+/**
+ * Carrossel de Avaliações no Mobile (Touch Snap + Dots + Setas)
+ */
+function setupReviewsCarousel() {
+  const carousel = document.getElementById('reviewsCarousel');
+  const dots = document.querySelectorAll('.review-carousel-dot');
+  const prevBtn = document.getElementById('reviewsPrev');
+  const nextBtn = document.getElementById('reviewsNext');
+
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.review-slide');
+  if (!slides.length) return;
+
+  // Atualiza dot ativo no scroll
+  let scrollTimeout;
+  carousel.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(updateActiveDot, 50);
+  }, { passive: true });
+
+  function updateActiveDot() {
+    const scrollLeft = carousel.scrollLeft;
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    slides.forEach((slide, idx) => {
+      const slideLeft = slide.offsetLeft - carousel.offsetLeft;
+      const dist = Math.abs(scrollLeft - slideLeft);
+      if (dist < minDistance) {
+        minDistance = dist;
+        closestIndex = idx;
+      }
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('is-active', idx === closestIndex);
+    });
+  }
+
+  // Clique nos dots
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const index = parseInt(dot.getAttribute('data-index') || '0', 10);
+      if (slides[index]) {
+        slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+  });
+
+  // Setas anterior e próxima
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -carousel.offsetWidth * 0.88, behavior: 'smooth' });
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: carousel.offsetWidth * 0.88, behavior: 'smooth' });
+    });
+  }
+}
+
