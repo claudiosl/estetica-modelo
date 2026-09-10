@@ -301,6 +301,17 @@ p {
   background: #D8B780;
 }
 
+@media (max-width: 768px) {
+  .btn-primary, .btn-secondary, .btn-whatsapp {
+    width: auto;
+    max-width: fit-content;
+  }
+  .btn-trailing-icon {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+}
+
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -746,14 +757,16 @@ p {
   }
 
   .hero-cta-group {
-    width: 100%;
+    width: auto;
+    display: flex;
+    justify-content: flex-start;
   }
 
   .hero-cta-group .btn-primary {
-    width: 100%;
-    justify-content: center;
-    padding: 0.95rem 1.5rem;
-    font-size: 0.975rem;
+    width: auto;
+    max-width: fit-content;
+    padding: 0.6rem 0.6rem 0.6rem 1.35rem;
+    font-size: 0.885rem;
   }
 }
 
@@ -1425,8 +1438,10 @@ p {
     border-radius: calc(2rem - 0.65rem);
   }
   .specialist-content .btn-primary {
-    width: 100%;
-    justify-content: center;
+    width: auto;
+    max-width: fit-content;
+    padding: 0.6rem 0.6rem 0.6rem 1.35rem;
+    font-size: 0.885rem;
   }
 }
 
