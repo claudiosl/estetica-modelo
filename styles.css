@@ -669,30 +669,92 @@ p {
   }
 }
 
+/* Especialista no topo da Hero (oculto no desktop) */
+.hero-mobile-specialist {
+  display: none;
+}
+
 @media (max-width: 991px) {
   .hero-section {
-    min-height: 85dvh;
-    padding-top: 8rem;
+    min-height: auto;
+    padding-top: 6.75rem;
     padding-bottom: 4.5rem;
-    display: flex;
-    align-items: center;
+    display: block;
   }
 
-  /* No mobile, a foto da especialista NÃO fica no fundo da hero (removida conforme sua escolha),
-     deixando o fundo 100% limpo com iluminação sutil de luxo, e todo o destaque para a 2ª seção */
   .hero-section::before {
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background-image: 
-      radial-gradient(ellipse at 50% 20%, rgba(226, 196, 147, 0.12) 0%, transparent 65%),
-      linear-gradient(180deg, #141210 0%, #181512 50%, #141210 100%);
+      radial-gradient(ellipse at 50% 12%, rgba(226, 196, 147, 0.12) 0%, transparent 65%),
+      linear-gradient(180deg, #141210 0%, #171513 55%, #141210 100%);
     background-position: center;
     background-size: cover;
   }
 
-  /* No mobile, ocultamos os icones de redes sociais soltos no topo para visual limpo e sofisticado */
+  /* No mobile, a especialista fica em destaque no topo, logo abaixo do menu */
+  .hero-mobile-specialist {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1.85rem;
+  }
+
+  .hero-mobile-img-outer {
+    position: relative;
+    width: min(315px, 82vw);
+    padding: 0.45rem;
+    border-radius: 2rem;
+    background: linear-gradient(145deg, rgba(226, 196, 147, 0.5) 0%, rgba(20, 18, 16, 0.9) 55%, rgba(226, 196, 147, 0.25) 100%);
+    box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.65), 0 0 24px rgba(194, 159, 104, 0.2);
+  }
+
+  .hero-mobile-img-inner {
+    position: relative;
+    border-radius: calc(2rem - 0.45rem);
+    overflow: hidden;
+    aspect-ratio: 4 / 4.7;
+    background-color: #1a1714;
+  }
+
+  .hero-mobile-img-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 16%;
+    display: block;
+  }
+
+  .hero-mobile-badge {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: rgba(18, 16, 14, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 196, 147, 0.45);
+    color: #FAF7F2;
+    font-size: 0.775rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-pill);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  }
+
+  .hero-mobile-badge .hero-badge-star {
+    color: var(--color-gold);
+    font-size: 0.85rem;
+  }
+
+  /* No mobile, ocultamos os icones de redes sociais soltos no topo para visual limpo */
   .hero-top-social {
     display: none !important;
   }
@@ -700,23 +762,24 @@ p {
 
 @media (max-width: 768px) {
   .hero-section {
-    min-height: 80dvh;
-    padding-top: 7.5rem;
-    padding-bottom: 4rem;
+    padding-top: 6.25rem;
+    padding-bottom: 3.75rem;
   }
 
+  /* Headline (head) logo abaixo da especialista */
   .hero-copy h1 {
-    font-size: clamp(2rem, 7.5vw, 2.75rem);
-    line-height: 1.15;
-    margin-bottom: 1.25rem;
+    font-size: clamp(1.85rem, 6.8vw, 2.35rem);
+    line-height: 1.18;
+    margin-bottom: 1rem;
     color: #FAF7F2;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
   }
 
+  /* Subhead abaixo da headline */
   .hero-description {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    margin-bottom: 2rem;
+    font-size: 0.975rem;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
     color: #D6CEC3;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   }
@@ -728,8 +791,8 @@ p {
   .hero-cta-group .btn-primary {
     width: 100%;
     justify-content: center;
-    padding: 1rem 1.75rem;
-    font-size: 1rem;
+    padding: 0.95rem 1.5rem;
+    font-size: 0.975rem;
   }
 }
 
